@@ -1,0 +1,44 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-8  pb-3">
+      <div *ngFor="let user of users, index as i"  class="row">
+        <div class="col-md-9 ">
+          <div class="row form-group">
+            <div class="col-12">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+            </div>
+
+            <div *ngIf="showErrors || i === 3"  class="col-12">
+              <small id="passwordHelp" class="text-danger">
+                Must be 8-201 characters long.
+              </small>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 mt-n3 mt-md-4">
+          <button type="button" class="mt-2 btn btn-primary text-nowrap">Send Invite</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+
+      <ul class="card bg-light">
+        <h2 class="card-title">
+          Invitation Status
+        </h2>
+        <div class="card-body ">
+        <li>This is a message line with varied Size & Length</li>
+        <li>This is a message line with varied Size 2</li>
+        <li>
+          This is a message line with varied Size
+          xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+        </li>
+        <li>This is a message line with varied Size asd asas as asasdas</li>
+        <li>This is a message line with varied Size</li>
+        <li>This is a message</li>
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>
