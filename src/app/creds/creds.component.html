@@ -1,1 +1,184 @@
-<p>creds works!</p>
+<div>
+  <div>
+    <form [formGroup]="changePwdForm" (submit)="submit()">
+      <div class="form-group">
+        <label
+          for="currentPwd"
+          [ngClass]="
+            changePwdForm.controls['currentPwd'].invalid ? 'text-danger' : ''
+          "
+        >
+          Current Password
+        </label>
+        <input
+          id="currentPwd"
+          formControlName="currentPwd"
+          type="password"
+          class="form-control"
+          [ngClass]="
+            changePwdForm.controls['currentPwd'].invalid ? 'is-invalid' : ''
+          "
+        />
+        <label
+          class="text-danger"
+          *ngIf="changePwdForm.controls['currentPwd'].hasError('required')"
+        >
+          Current Password is Required!
+        </label>
+      </div>
+      <div class="form-group">
+        <label
+          for="password"
+          [ngClass]="
+            changePwdForm.controls['password'].invalid ? 'text-danger' : ''
+          "
+          >Password:</label
+        >
+        <input
+          id="password"
+          formControlName="password"
+          type="password"
+          class="form-control"
+          [ngClass]="
+            changePwdForm.controls['password'].invalid ? 'is-invalid' : ''
+          "
+        />
+        <!-- <label class="text-danger col" *ngIf="changePwdForm.controls['password'].hasError('required')">
+          Password is Required!
+        </label> -->
+        <label
+          class="col"
+          [ngClass]="
+            changePwdForm.controls['password'].hasError('required') ||
+            changePwdForm.controls['password'].hasError('minlength')
+              ? 'text-danger'
+              : 'text-success'
+          "
+        >
+          <i class="material-icons">{{
+            changePwdForm.controls["password"].hasError("required") ||
+            changePwdForm.controls["password"].hasError("minlength")
+              ? "cancel"
+              : "check_circle"
+          }}</i>
+          Must be at least 8 characters!
+        </label>
+        <label
+          class="col"
+          [ngClass]="
+            changePwdForm.controls['password'].hasError('required') ||
+            changePwdForm.controls['password'].hasError('hasNumber')
+              ? 'text-danger'
+              : 'text-success'
+          "
+        >
+          <i class="material-icons">{{
+            changePwdForm.controls["password"].hasError("required") ||
+            changePwdForm.controls["password"].hasError("hasNumber")
+              ? "cancel"
+              : "check_circle"
+          }}</i>
+          Must contain at least 1 number!
+        </label>
+        <label
+          class="col"
+          [ngClass]="
+            changePwdForm.controls['password'].hasError('required') ||
+            changePwdForm.controls['password'].hasError('hasCapitalCase')
+              ? 'text-danger'
+              : 'text-success'
+          "
+        >
+          <i class="material-icons">{{
+            changePwdForm.controls["password"].hasError("required") ||
+            changePwdForm.controls["password"].hasError("hasCapitalCase")
+              ? "cancel"
+              : "check_circle"
+          }}</i>
+          Must contain at least 1 in Capital Case!
+        </label>
+        <label
+          class="col"
+          [ngClass]="
+            changePwdForm.controls['password'].hasError('required') ||
+            changePwdForm.controls['password'].hasError('hasSmallCase')
+              ? 'text-danger'
+              : 'text-success'
+          "
+        >
+          <i class="material-icons">{{
+            changePwdForm.controls["password"].hasError("required") ||
+            changePwdForm.controls["password"].hasError("hasSmallCase")
+              ? "cancel"
+              : "check_circle"
+          }}</i>
+          Must contain at least 1 Letter in Small Case!
+        </label>
+        <label
+          class="col"
+          [ngClass]="
+            changePwdForm.controls['password'].hasError('required') ||
+            changePwdForm.controls['password'].hasError('hasSpecialCharacters')
+              ? 'text-danger'
+              : 'text-success'
+          "
+        >
+          <i class="material-icons">{{
+            changePwdForm.controls["password"].hasError("required") ||
+            changePwdForm.controls["password"].hasError("hasSpecialCharacters")
+              ? "cancel"
+              : "check_circle"
+          }}</i>
+          Must contain at least 1 Special Character!
+        </label>
+      </div>
+      <div class="form-group">
+        <label
+          for="confirmPassword"
+          [ngClass]="
+            changePwdForm.controls['confirmPassword'].invalid
+              ? 'text-danger'
+              : ''
+          "
+          >Confirm Password:</label
+        >
+        <input
+          id="confirmPassword"
+          formControlName="confirmPassword"
+          type="password"
+          class="form-control"
+          [ngClass]="
+            changePwdForm.controls['confirmPassword'].invalid
+              ? 'is-invalid'
+              : ''
+          "
+        />
+        <label
+          class="text-danger"
+          *ngIf="changePwdForm.controls['confirmPassword'].hasError('required')"
+        >
+          Password is Required!
+        </label>
+        <label
+          class="text-danger"
+          *ngIf="
+            changePwdForm.controls['confirmPassword'].hasError(
+              'NoPassswordMatch'
+            )
+          "
+        >
+          Password do not match
+        </label>
+      </div>
+      <div class="form-group">
+        <button
+          [disabled]="changePwdForm.invalid"
+          type="submit"
+          class="btn btn-primary btn-block font-weight-bold"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
