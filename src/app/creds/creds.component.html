@@ -10,15 +10,17 @@
         >
           Current Password
         </label>
-        <input
+        <app-stealthbox class="row">
+          <input #stealthy
           id="currentPwd"
           formControlName="currentPwd"
           type="password"
-          class="form-control"
+          class="form-control col-12"
           [ngClass]="
             changePwdForm.controls['currentPwd'].invalid ? 'is-invalid' : ''
-          "
+          " style="background-image: none;"
         />
+        </app-stealthbox>
         <label
           class="text-danger"
           *ngIf="changePwdForm.controls['currentPwd'].hasError('required')"

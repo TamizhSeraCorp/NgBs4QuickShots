@@ -1,0 +1,17 @@
+.stealthy {
+  position: relative;
+  width: 60%;
+}
+
+span {
+  position: absolute;
+  right: 8px;
+  top: 4px;
+
+  border: none;
+  text-align: center;
+  padding: 2px;
+}
+span:hover {
+  cursor: pointer;
+}

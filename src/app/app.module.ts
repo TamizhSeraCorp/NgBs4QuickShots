@@ -7,13 +7,15 @@ import { AppComponent } from "./app.component";
 import { InviterComponent } from "./inviter/inviter.component";
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { CredsComponent } from "./creds/creds.component";
+import { StealthboxComponent } from './comps/stealthbox/stealthbox.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InviterComponent,
     DashboardComponent,
-    CredsComponent
+    CredsComponent,
+    StealthboxComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
